@@ -1,0 +1,9 @@
+.order_form{
+    width:100%;
+}
+
+@media screen and (min-width: 768px) {
+    .order_form{
+        width:95%;
+    }
+  }

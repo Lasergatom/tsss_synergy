@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSSS Synergy</title>
+
+    <!-- CSS -->
+    <link href="style.css" rel="stylesheet">
+    <link href="cartpage.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+      />
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+      ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-i18n@9"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div id="app">
+      <nav class="navbar navbar-expand-lg bg-light sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex justify-content-left brand fs-5"  href="index.html"><img src="logo.jpg" width="30px" height="30px" class="mx-2">TSSS Synergy Online Services</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link active w-100 text-center" href="stationary.html">Buy Stationary</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link w-100 text-center" href="#">Borrow Equipment</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link w-100 text-center" href="#">Event Calender</a>
+              </li>
+              <li class="locale-changer nav-item dropdown d-flex justify-content-center nitem" v-model="$i18n.locale">
+                <a class="nav-link dropdown-toggle w-100 text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Language: {{ $i18n.locale }}
+                </a>
+                  <ul class="dropdown-menu text-center w-100">
+                    <li v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale" class="dropdown-item" @click="$i18n.locale=locale">{{ locale }}</li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="w-100 d-flex justify-content-center bannercontain" style="background-color: lightslategray;">
+        <img src="banner.jpg" class="banner">
+        <div class="banner-title w-100 text-center">Buy Stationary</div>
+      </div>
+    <div class="container-fluid bg-white">
+      <div class="container">
+        <div class="btn-group w-100 my-2" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+          <label class="btn btn-outline-primary fs-5 itempage-trigger" for="btnradio1">Items</label>
+        
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+          <label class="btn btn-outline-primary fs-5 cartpage-trigger" for="btnradio2">Cart</label>
+        </div>
+      </div>
+    </div>
+    <div class="container text-black">
+      <div class="row d-flex justify-content-center" id="itemlog"></div>
+      <div class="row my-2 d-none" id="cartlog">
+        <div class="col-md-6 col-12 card px-0" style="min-height:50vh;">
+          <ul class="list-group" id="cartlist">
+            <!-- <li class="list-group-item d-flex align-items-top">
+              <img class="mx-1" src="items/stationary/correction-tape.jpg" style="object-fit: contain;width:20%;height:10vh">
+              <span class="d-inline-block px-2" style="width:75%;height:100%;">
+                <div class="fs-4 d-inline-block" style="height:40%;width:60%;">Item 001</div>
+                <div class="fs-5 d-inline-block text-end" style="height:40%;width:35%;">Cost: $20</div>
+                <div class="fs-4 d-inline-block" style="height:50%;width:100%;">
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="height:100%;aspect-ratio: 1 / 1;"><i class="bi bi-dash"></i></span>
+                  <input min="1" class="d-inline form-control fs-5 text-center mx-2 bg-white quantity" style="width:25%;" placeholder="0" aria-label="Username" aria-describedby="basic-addon" disabled>
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="height:100%;aspect-ratio: 1 / 1;"><i class="bi bi-plus"></i></span>
+                  <div class="d-inline-block" style="width:10vh"></div>
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-danger text-white" style="height:100%;aspect-ratio: 1 / 1;"><i class="bi bi-trash3"></i></span>
+                </div>
+              </span>
+            </li> -->
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-12 d-flex p-0 justify-content-end mt-md-0 mt-2">
+          <div class="card d-flex align-items-center order_form" style="min-height:50vh;">
+            <div class="fs-3 my-2">Total Cost: $<span class="total_cost">0</span></div>
+            <div class="form-floating mb-3" style="width:70%">
+              <input type="text" class="form-control" id="student_id_input" placeholder="name@example.com">
+              <label for="student_id_input">Student ID &#40;i.e. sXXXXXX&#41;</label>
+            </div>
+            <div class="form-floating mb-3" style="width:70%">
+              <input type="text" class="form-control" id="name_input" placeholder="name@example.com">
+              <label for="name_input">Name</label>
+            </div>
+
+            <div class="d-flex justify-content-between" style="width:70%">
+              <div class="form-floating mb-3" style="width:45%">
+                <input type="text" class="form-control" id="class_input" placeholder="name@example.com">
+                <label for="class_input">Class</label>
+              </div>
+              <div class="form-floating mb-3" style="width:45%">
+                <input type="text" class="form-control" id="class_no_input" placeholder="name@example.com">
+                <label for="class_no_input">Class No.</label>
+              </div>
+            </div>
+            <button class="btn btn-primary fs-5" id="order_trigger" style="width:40%">Place Order</button>
+            <div class="order-msg mt-1 text-danger"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="itemoverwrite-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Existing item exists in cart</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="fs-5 my-2">Existing item will be overwritten on confirm</div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary additem-confirm">Confirm</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="removecartitem-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Remove item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="fs-5 my-2">Item "" will be removed from cart</div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary removecartitem-confirm">Confirm</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="order-process-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content d-flex justify-content-center align-items-center">
+          <div class="modal-header">
+            
+          </div> 
+          <div class="modal-body">
+              <div class="fs-4 my-2">Processing order...</div>
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <footer class="footer py-3 bg-light">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Items</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Cart</a></li>
+        </ul>
+        <p class="text-center text-body-secondary"><span style="margin:12px">SA Gmail: <a href="mailto:synergytsss@gmail.com">synergytsss@gmail.com</a></span><span style="margin:12px">Developer Gmail: <a href="mailto:synergytsss@gmail.com">s201032@tsss.edu.hk</a></span></p>
+        <p class="text-center text-body-secondary">2024-2025 TSSS Student Union - Synergy</p>
+      </footer>
+</div>
+<script src="vuei18n.js"></script>
+<script src="mediaquery.js"></script>
+<script src="itemload.js" type="module"></script>
+</body>
+</html>

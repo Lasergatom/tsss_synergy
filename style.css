@@ -1,0 +1,67 @@
+@media screen and (min-width: 200px) {
+    .brand{
+        width: 18vw;
+    }
+    .nitem{
+        width: 100%;
+    }
+  }
+@media screen and (min-width: 992px) {
+    .brand{
+        width: 35vw;
+    }
+    .nitem{
+        width: 15.5vw;
+    }
+  }
+@media screen and (min-width: 1200px) {
+    .brand{
+        width: 28vw;
+    }
+    .nitem{
+        width: 17vw;
+    }
+  }
+
+body{
+    min-height: 100vh;
+}
+@media screen and (min-width: 200px) {
+    .banner{
+        height: 20vh;
+        width:100vw;
+        object-fit: cover;
+    }
+  }
+@media screen and (min-width: 992px) {
+    .banner{
+        height: 30vh;
+        width:100vw;
+        object-fit: cover;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .banner{
+        height: 40vh;
+        width:100vw;
+        object-fit: cover;
+    }
+  }
+
+.banner-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+}
+.bannercontain{
+    position: relative;
+}
+.nav-item:hover{
+    background-color: rgb(200, 200, 200);
+}
+#app{
+    background-color: rgb(240, 240, 240);
+}
+
