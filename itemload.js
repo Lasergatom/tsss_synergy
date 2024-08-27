@@ -28,7 +28,7 @@ const q = query(collection(db, "items"), where("type", "==", "stationary"));
 function additemcard(itemname,itemstock,imgname,itemcost){
     $( "#itemlog" ).append( `<div class="col-xl-3 col-lg-4 col-md-5 col-11">
             <div class="itemcard card bg-white m-3" style="height:40vh;max-height:300px">
-                <img src="/items/stationary/${imgname}" height="30%" style="object-fit: contain;" class="card-img-top" alt="...">
+                <img src="items/stationary/${imgname}" height="30%" style="object-fit: contain;" class="card-img-top" alt="...">
                 <div class="px-4 border-top" style="height:70%">
                     <div class="fs-4 itemname">${itemname}</div>
                     <span style="width:30%" class="fs-5 itemcost d-inline-block">$${itemcost}</span>
