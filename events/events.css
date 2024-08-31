@@ -1,0 +1,44 @@
+/* .event-title{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%,0%);
+    color:rgb(48, 90, 76) ;
+}
+.event-desc-1{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.event-desc-2{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.event-contain{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.event-details-contain{
+    background-image: url("../wallpaper1.jpg");
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100% auto;
+}
+@media screen and (min-width: 200px) {
+    .event-desc{
+        height: auto;
+        padding-bottom: 1vh;
+    }
+  }
+
+@media screen and (min-width: 992px) {
+    .event-desc{
+        height: 25vh;
+    }
+  }

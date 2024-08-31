@@ -11,7 +11,7 @@
         width: 35vw;
     }
     .nitem{
-        width: 15.5vw;
+        width: 12vw;
     }
   }
 @media screen and (min-width: 1200px) {
@@ -19,7 +19,7 @@
         width: 28vw;
     }
     .nitem{
-        width: 17vw;
+        width: 14vw;
     }
   }
 
@@ -28,21 +28,21 @@ body{
 }
 @media screen and (min-width: 200px) {
     .banner{
-        height: 20vh;
+        height: 35vh;
         width:100vw;
         object-fit: cover;
     }
   }
 @media screen and (min-width: 992px) {
     .banner{
-        height: 30vh;
+        height: 50vh;
         width:100vw;
         object-fit: cover;
     }
   }
   @media screen and (min-width: 1200px) {
     .banner{
-        height: 40vh;
+        height: 60vh;
         width:100vw;
         object-fit: cover;
     }
@@ -53,7 +53,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 5vw;
+    font-size: 5rem !important;
 }
 .bannercontain{
     position: relative;
@@ -65,3 +65,26 @@ body{
     background-color: rgb(240, 240, 240);
 }
 
+.banner-text{
+    background-color: rgba(255,255,255,0.5);
+}
+.intro-title {
+    position: absolute;
+    top: 15vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw;
+}
+.team-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw;
+}
+
+.wallpapercontain{
+    position: relative;
+    background-image: url("wallpaper1.jpg");
+    opacity: 0.5;
+}

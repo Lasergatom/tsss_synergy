@@ -1,0 +1,49 @@
+#member-name-1, #member-details-1{
+    background: linear-gradient(#382222, #b95624);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#member-name-2, #member-details-2{
+    background: linear-gradient(to right, #000000, #b95624);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#member-name-3, #member-details-3{
+    background: linear-gradient(to right, #252a24, #29c709);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#member-name-4, #member-details-4{
+    background: linear-gradient(#352730, #7b245c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#member-name-5, #member-details-5{
+    background: linear-gradient(#65562c,#c29c35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#member-name-6, #member-details-6{
+    background: linear-gradient(to right, #1922cb, #24264f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#member-name-7, #member-details-7{
+    background: linear-gradient(#3dab2c,#365132);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#member-name-8, #member-details-8{
+    background: linear-gradient(to right,#4b0a40,#bc0e9f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#member-name-9, #member-details-9{
+    background: linear-gradient(to left,#4b0a40,#bc0e9f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSSS Synergy</title>
+
+    <!-- CSS -->
+    <link href="../style.css" rel="stylesheet">
+    <link href="welfare.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+      />
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+      ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-i18n@9"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg bg-light sticky-top">
+            <div class="container-fluid">
+            <a class="navbar-brand d-flex justify-content-left brand fs-5" style="width:20%;" href="../index.html"><img src="../logo.jpg" width="30px" height="30px" class="mx-2">TSSS Synergy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+                <li class="nav-item d-flex justify-content-center nitem">
+                    <a class="nav-link active w-100 text-center" href="#">News</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center nitem">
+                    <a class="nav-link active w-100 text-center" href="../events/events.html">Events</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center nitem">
+                    <a class="nav-link active w-100 text-center" href="#">Welfare</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center nitem">
+                  <a class="nav-link active w-100 text-center" href="https://forms.gle/PvJFFEvYX2Hy6bNr5" target="_blank">Suggestions</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center nitem">
+                  <a class="nav-link active w-100 text-center" href="../onlineservices/os.html">Online Services</a>
+                </li>
+                <li class="locale-changer nav-item dropdown d-flex justify-content-center nitem" v-model="$i18n.locale">
+                    <a class="nav-link dropdown-toggle w-100 text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Language: {{ $i18n.locale }}
+                    </a>
+                    <ul class="dropdown-menu text-center w-100">
+                        <li v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale" class="dropdown-item" @click="$i18n.locale=locale">{{ locale }}</li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="d-flex justify-content-center w-100 my-3 event-details-contain">
+            <div style="background-color:rgba(255,255,255,0.5);width: 100%;">
+                <div class=" w-100 text-center"><span class="banner-text" style="font-size: 4rem;color:rgb(185, 57, 57);">Welfare</span></div>
+                    <span class="text-start d-flex justify-content-center">
+                        <div class="my-2 col-lg-9 col-12" style="background-color:rgba(255, 220, 93, 0.3);"><span class="m-1 d-flex justify-content-start w-100">
+                            <img src="arno.png" style="width:10%;object-fit: contain;">
+                            <span class="d-inline-block ms-2 text-center">
+                                <div class="fs-1" style="color:rgb(85, 40, 96);">Arno Sports</div>
+                                <span class="fs-5 event-desc" style="color:rgb(115, 54, 130);">喜歡運動的同學，只要在此店購買運動用品時 出示有效學生證，就可享有9折優惠!</span>
+                            </span>
+                        </span></div>
+                    </span>
+                    <span class="text-end d-flex justify-content-center">
+                        <div class="my-2 col-lg-9 col-12" style="background-color:rgba(218, 107, 107, 0.3);"><span class="m-1 d-flex justify-content-end w-100">
+                            <span class="d-inline-block me-2 text-center">
+                                <div class="fs-1" style="color:rgb(139, 24, 24);">A1印衫公司</div>
+                                <div class="fs-5 event-desc" style="color:rgb(186, 33, 33);">同學可享有不同配套福利，例如團體優惠折扣， 免費設計印製，尺寸試穿的服務，永久補單低價等。</div>
+                            </span>
+                            <img src="A1.jpeg" style="width:10%;object-fit: contain;">
+                        </span></div>
+                    </span>
+                    <span class="text-start d-flex justify-content-center">
+                        <div class="my-2 col-lg-9 col-12" style="background-color:rgba(255,255,255,0.5);"><span class="m-1 d-flex justify-content-start w-100">
+                            <img src="class3.jpeg" style="width:10%;object-fit: contain;">
+                            <span class="d-inline-block ms-2 text-center">
+                                <div class="fs-1" style="color:rgb(47, 46, 80);">Class3班衫設計專門店</div>
+                                <span class="fs-5 event-desc" style="color:rgb(60, 59, 101)">同學在此店訂購班衫可享有85折優惠， 並提供免費電腦繪圖和免費送貨。</span>
+                            </span>
+                        </span></div>
+                    </span>
+                    <span class="text-end d-flex justify-content-center">
+                        <div class="my-2 col-lg-9 col-12" style="background-color:rgba(93, 45, 45, 0.3);"><span class="m-1 d-flex justify-content-end w-100">
+                            <span class="d-inline-block me-2 text-center">
+                                <div class="fs-1" style="color:rgb(67, 30, 30);">C-Dwell Partyroom</div>
+                                <div class="fs-5 event-desc" style="color:rgb(112, 52, 52);">同學只要提供有效學生證 就能獲取租Party Room的9折專享!</div>
+                            </span>
+                            <img src="cdwell.jpeg" style="width:10%;object-fit: contain;">
+                        </span></div>
+                    </span>
+                    <span class="text-start d-flex justify-content-center">
+                        <div class="my-2 col-lg-9 col-12" style="background-color:rgba(255, 222, 177, 0.3)"><span class="m-1 d-flex justify-content-start w-100">
+                            <img src="handcraft.png" style="width:10%;object-fit: contain;">
+                            <span class="d-inline-block ms-2 text-center">
+                                <div class="fs-1" style="color:rgb(149, 104, 40);">手作之店</div>
+                                <span class="fs-5 event-desc" style="color:rgb(166, 115, 44);">本校每位同學都會獲得一張雪糕球免 費升級優惠卡和小單球優惠券兩張!</span>
+                            </span>
+                        </span></div>
+                    </span>
+                    <span class="text-end d-flex justify-content-center">
+                        <div class="my-2 col-lg-9 col-12" style="background-color:rgba(238, 229, 72, 0.3);"><span class="m-1 d-flex justify-content-end w-100">
+                            <span class="d-inline-block me-2 text-center">
+                                <div class="fs-1" style="color:rgb(112, 65, 65);">9kicks_</div>
+                                <div class="fs-5 event-desc" style="color:rgb(133, 79, 79);">凡出示學生證，全店享有九折優惠。Nike、Adidas、Puma、New Balance 應有盡有</div>
+                            </span>
+                            <img src="9kicks.jpeg" style="width:10%;object-fit: contain;">
+                        </span></div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="d-flex justify-content-center w-100 my-3">
+            <div class="d-flex justify-content-center bannercontain card" style="width: 80%;">
+                    <div class="w-100 text-center" style="font-size:4vw;background-color: rgb(79, 229, 207);"><span class="banner-text px-2">Coming Events</span></div>
+                <div class="card-footer text-center p-0">
+                    <ul class="list-group text-center fs-5">
+                        <li class="list-group-item">10月: 尋寶活動、謎題活動</li>
+                        <li class="list-group-item bg-light">11月: 歌唱比賽</li>
+                        <li class="list-group-item">12月: CHRISTMAS BALL</li>
+                        <li class="list-group-item bg-light">1月: WARGAME</li>
+                        <li class="list-group-item">3-5月: 籃球比賽、聯校動物義工服務</li>
+                        <li class="list-group-item bg-light">7月: 暑期領袖訓練營</li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+
+        <footer class="footer py-3 bg-light">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">News</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Events</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Welfare</a></li>
+            </ul>
+            <p class="text-center text-body-secondary"><span style="margin:12px">SA Gmail:<a href="mailto:synergytsss@gmail.com">synergytsss@gmail.com</a></span><span style="margin:12px">Developer Gmail: <a href="mailto:synergytsss@gmail.com">s201032@tsss.edu.hk</a></span></p>
+            <p class="text-center text-body-secondary">2024-2025 TSSS Student Union - Synergy</p>
+        </footer>
+    </div>
+    <script src="../vuei18n.js"></script>
+    <script src="../mediaquery.js"></script>

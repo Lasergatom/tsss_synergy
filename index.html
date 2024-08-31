@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link href="style.css" rel="stylesheet">
+    <link href="gradient.css" rel="stylesheet">
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -38,13 +39,28 @@
     <div id="app">
       <nav class="navbar navbar-expand-lg bg-light sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand d-flex justify-content-left brand fs-5"  href="index.html"><img src="logo.jpg" width="30px" height="30px" class="mx-2">TSSS Synergy Online Services</a>
+          <a class="navbar-brand d-flex justify-content-left brand fs-5" style="width:20%;" href="index.html"><img src="logo.jpg" width="30px" height="30px" class="mx-2">TSSS Synergy</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
               <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link active w-100 text-center" href="#">News</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link active w-100 text-center" href="events/events.html">Events</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link active w-100 text-center" href="welfare/welfare.html">Welfare</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link active w-100 text-center" href="https://forms.gle/PvJFFEvYX2Hy6bNr5" target="_blank">Suggestions</a>
+              </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link active w-100 text-center" href="onlineservices/os.html">Online Services</a>
+              </li>
+              <!-- <li class="nav-item d-flex justify-content-center nitem">
                 <a class="nav-link active w-100 text-center" href="stationary.html">Buy Stationary</a>
               </li>
               <li class="nav-item d-flex justify-content-center nitem">
@@ -53,6 +69,9 @@
               <li class="nav-item d-flex justify-content-center nitem">
                 <a class="nav-link w-100 text-center" href="#">Event Calender</a>
               </li>
+              <li class="nav-item d-flex justify-content-center nitem">
+                <a class="nav-link w-100 text-center" href="#">Suggestions</a>
+              </li> -->
               <li class="locale-changer nav-item dropdown d-flex justify-content-center nitem" v-model="$i18n.locale">
                 <a class="nav-link dropdown-toggle w-100 text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Language: {{ $i18n.locale }}
@@ -66,8 +85,8 @@
         </div>
       </nav>
       <div class="w-100 d-flex justify-content-center bannercontain" style="background-color: lightslategray;">
-        <img src="banner.jpg" class="banner">
-        <div class="banner-title w-100 text-center">TSSS Synergy Borrowing Site</div>
+        <img src="banner3.png" class="banner">
+        <!-- <div class="banner-title w-100 text-center"><span class="banner-text px-2">TSSS Synergy Official Website</span></div> -->
       </div>
         <!-- <p>{{ eee }}</p> -->
         <!-- <div class="locale-changer">
@@ -78,7 +97,7 @@
         <!-- <button @click="$i18n.locale = 'en'">en</button>
         <button @click="$i18n.locale = 'ja'">ja</button> -->
         <!-- <div>{{ $t('message.hello') }}</div> -->
-         <div class="fs-2 w-100 text-center">
+         <!-- <div class="fs-2 w-100 text-center">
           Why was this website started?
           <div>information</div>
           <div>information</div>
@@ -87,16 +106,111 @@
           <div>information</div>
           <div>information</div>
           <div>information</div>
-         </div>
-          <footer class="footer py-3 bg-light">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Items</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Cart</a></li>
-            </ul>
-            <p class="text-center text-body-secondary"><span style="margin:12px">SA Gmail:<a href="mailto:synergytsss@gmail.com">synergytsss@gmail.com</a></span><span style="margin:12px">Developer Gmail: <a href="mailto:synergytsss@gmail.com">s201032@tsss.edu.hk</a></span></p>
-            <p class="text-center text-body-secondary">2024-2025 TSSS Student Union - Synergy</p>
-          </footer>
+         </div> -->
+        <div class="d-flex justify-content-center w-100 my-3">
+          <div class="d-flex justify-content-center bannercontain card" style="width: 80%;">
+            <img src="banner.jpg" class="opacity-50" style="height:30vh;object-fit: cover;">
+            <div class="intro-title w-100 text-center"><span class="banner-text px-2">About Us</span></div>
+            <div class="card-footer text-center">
+              Synergy stands for the fact that 1+1 is greater than 2 when we work together. As the saying goes, “One piece of bamboo is easy to bend, but several pieces of bamboo are hard to break”. Our cabinet emphasizes on the unity and cooperation among all parties in the school. As the Student Assosiation, we promote the relationship among teachers and students, and achieve deep solidarity among all parties in the school. So that they can work together to achieve common interests, bring a rich and beautiful campus life to TSSS students, as well as to form a good atmosphere of unity and solidarity. In the coming year, we have prepared new school and joint-school activities for you. We hope that students can show their strengths through these activities and challenge themselves. Last but not least, we hope that all students will actively reflect their views to us and we will accept your criticisms and reactions without hesitation.
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center w-100 my-3">
+          <div class="d-flex justify-content-center bannercontain card" style="width: 90%;">
+            <div style="position: relative;text-align: center;">
+              <img src="groupphoto.jpg" class="opacity-50 card-img-top" style="object-fit: contain;">
+              <div class="team-title w-100 text-center"><span class="banner-text px-2">Our Team</span></div>
+            </div>
+            <div class="card-footer p-0">
+              <ul class="list-group" id="memberlist">
+                <li class="list-group-item">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-1">主席 - 廖俊茗 Jimmy</div>
+                  <ul class="fs-5 ps-4" id="member-details-1" style="list-style-type:none;">
+                    <li class="my-2">• 兩屆Pilot Project成員、班會主席、前聖誕聯歡會司儀。</li>
+                    <li class="my-2">• 充分了解活動策劃，有舉辦大型活動的經驗，如歌唱比賽等。</li>
+                    <li class="my-2">• 來年致力於舉辦多項大規模活動，豐富同學的校園生活。</li>
+                    <li class="my-2">• 統領學生會大小事務，促使內部分工明確，堅決貫徹本會方針。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item text-end bg-light">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-2">內務副主席 - 陳嘉禧 Max</div>
+                  <ul class="fs-5 pe-4"  id="member-details-2" style="list-style-type:none;">
+                    <li class="my-2">• 前Pilot Project成員、班會文書，現民安隊副少年領袖。</li>
+                    <li class="my-2">• 熟悉學生組織內部運作，並有著豐富的團隊管理及內部調節的經驗。</li>
+                    <li class="my-2">• 來年致力於協調各部門的溝通及工作，促進團隊和諧、高效。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-3">外務副主席 - 司徒朗彥 Szeto</div>
+                  <ul class="fs-5 ps-4"  id="member-details-3" style="list-style-type:none;">
+                    <li class="my-2">• 前Pilot Project成員、班會成員，現週會司儀。</li>
+                    <li class="my-2">• 擁有豐富的公眾演說及與他人打交道的經驗，能構建與他校學生的有效溝通。</li>
+                    <li class="my-2">• 來年致力於建立與他校學生會的連接，提供多校聯誼的場景。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item text-end bg-light">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-4">秘書 - 李銘軒 Verick</div>
+                  <ul class="fs-5 pe-4"  id="member-details-4" style="list-style-type:none;">
+                    <li class="my-2">• 前Pilot Project成員、班會成員。</li>
+                    <li class="my-2">• 為人細心、負責，有著整理資訊和記錄會議內容的豐富經驗。</li>
+                    <li class="my-2">• 來年致力於確保成員清楚知道會議詳情及本會目標，促進成員間的有效溝通，使活動舉辦得完善、高效。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-5">財政 - 楊澤淇 Steven</div>
+                  <ul class="fs-5 ps-4"  id="member-details-5" style="list-style-type:none;">
+                    <li class="my-2">• 兩屆Pilot Project成員、班會財政。</li>
+                    <li class="my-2">• 為人認真、仔細，熟練掌握財務記錄工具，於財務管理方面富有經驗。</li>
+                    <li class="my-2">• 來年致力於控制活動開支、記錄財務收支並調配預算，促使活動的順利舉辦。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item text-end bg-light">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-6">資訊科技 - 廖卓堯 Cyrus</div>
+                  <ul class="fs-5 pe-4"  id="member-details-6" style="list-style-type:none;">
+                    <li class="my-2">• 前Pilot Project成員、班會資訊科技、資訊科技隊副隊長，現資訊科技隊隊長。</li>
+                    <li class="my-2">• 於製作網站及完成各類電子技術相關的項目有著豐富的經驗，能保質完成電子科技項目。</li>
+                    <li class="my-2">• 來年致力於使學生會的服務電子化，如搭建學生會網站等，充分利用自己的技能令學生會的服務便捷、有效。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-7">宣傳 - 蘇恩信 Fidelis</div>
+                  <ul class="fs-5 ps-4"  id="member-details-7" style="list-style-type:none;">
+                    <li class="my-2">• 前Pilot Project成員、班會主席、運動會司儀、聖誕聯歡會司儀，現週會司儀。</li>
+                    <li class="my-2">• 為人外向、善於表達，於許多場合、媒介都做過宣傳工作，知道如何做到有效傳播。</li>
+                    <li class="my-2">• 來年致力於用先進、有效的方式和渠道，令同學得到一手資訊，擴大活動的受眾。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item text-end bg-light">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-8">總務 - 沈子嘉 Haridas</div>
+                  <ul class="fs-5 pe-4"  id="member-details-8" style="list-style-type:none;">
+                    <li class="my-2">• 前風紀、班長、公社科科長及各類家庭活動策劃者。</li>
+                    <li class="my-2">• 有能力完成海報設計、影片製作、活動籌辦等各領域事務。</li>
+                    <li class="my-2">• 來年致力於查漏補缺，協調各項活動的籌辦，使活動完整舉行。</li>
+                  </ul>
+                </li>
+                <li class="list-group-item">
+                  <div class="fs-3 fw-bold d-inline-block" id="member-name-9">總務 - 李梓豪 Jimmy Lee</div>
+                  <ul class="fs-5 ps-4"  id="member-details-9" style="list-style-type:none;">
+                    <li class="my-2">• 前英文科科長，校外義工。</li>
+                    <li class="my-2">• 擅於變換角色，可於各領域作貢獻，充分追求團隊效益。</li>
+                    <li class="my-2">• 來年致力於協助及推進各部門工作，並隨時支援各項活動的籌備和舉辦。</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="footer py-3 bg-light">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">News</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Events</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Welfare</a></li>
+          </ul>
+          <p class="text-center text-body-secondary"><span style="margin:12px">SA Gmail:<a href="mailto:synergytsss@gmail.com">synergytsss@gmail.com</a></span><span style="margin:12px">Developer Gmail: <a href="mailto:synergytsss@gmail.com">s201032@tsss.edu.hk</a></span></p>
+          <p class="text-center text-body-secondary">2024-2025 TSSS Student Union - Synergy</p>
+        </footer>
     </div>
     <script src="vuei18n.js"></script>
     <script src="mediaquery.js"></script>
